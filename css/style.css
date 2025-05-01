@@ -1,79 +1,356 @@
+/* ========== Reset & Basis ========== */
+html {
+    overflow-y: scroll;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f9f4;
+    color: #2e5949;
+    scroll-behavior: smooth;
 }
 
+/* ========== Navigatie met #17lommel links ========== */
 header {
-    background: #333;
-    padding: 15px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(46, 89, 73, 0.95);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #c9e3d4;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 35px;
+    flex-wrap: wrap;
 }
 
 nav ul li a {
+    position: relative;
     color: #fff;
     text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 5px 2px;
+    transition: color 0.3s ease;
 }
 
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #c9e3d4;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #c9e3d4;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ========== Main Inhoud ========== */
 main {
-    padding: 100px 20px 20px;
+    padding: 120px 20px 60px;
+    max-width: 1100px;
+    margin: auto;
 }
 
+h1 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #1f3c31;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2em;
+    color: #4d7763;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #2e5949;
+}
+
+/* ========== Reader Blokken ========== */
 .reader .block {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Automatische afwisseling: enkel .block's tellen nu mee */
-.reader .block:nth-of-type(odd) .image {
+.reader .block.border-dashed {
+    border: 3px dashed #4a8660;
+}
+
+.reader .block.border-solid {
+    border: 3px solid #4a8660;
+}
+
+.reader .block.left-img .image {
     order: 1;
 }
-
-.reader .block:nth-of-type(odd) .text {
+.reader .block.left-img .text {
     order: 2;
 }
-
-.reader .block:nth-of-type(even) .image {
+.reader .block.right-img .image {
     order: 2;
 }
-
-.reader .block:nth-of-type(even) .text {
+.reader .block.right-img .text {
     order: 1;
 }
 
 .reader .block .image {
-    width: 40%;
-    height: 200px;
-    background: purple;
+    width: 45%;
+    flex-shrink: 0;
+}
+
+.reader .block .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .reader .block .text {
     width: 55%;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 50px;
+.reader .block .text p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #2e5949;
 }
 
-hr {
+
+/* ========== Extra tekstblok ========== */
+.reader .text-block {
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #2e5949;
+    background-color: #f9fcf8;
+    padding: 30px;
+    border: 2px dashed #4a8660;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    text-align: justify;
+}
+
+/* ========== Divider ========== */
+.divider, hr {
     border: none;
     border-top: 1px solid #ccc;
-    margin: 20px 0;
+    margin: 40px 0;
+}
+
+/* ========== Contactformulier (Forum.html) ========== */
+#contact {
+    background-color: #eaf4ec;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1f3c31;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: auto;
+}
+
+#contact label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background: white;
+    margin-bottom: 10px;
+}
+
+#contact button {
+    background-color: #4a8660;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#contact button:hover {
+    background-color: #396c4e;
+}
+
+#status {
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* ========== Footer ========== */
+footer {
+    background: #2e5949;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+/* ========== Mobile Responsive ========== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .reader .block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .reader .block .image,
+    .reader .block .text {
+        width: 100%;
+    }
+
+    .reader .block .image img {
+        max-height: 250px;
+    }
+
+    main {
+        padding: 100px 15px 40px;
+    }
+}
+
+.video-box {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f1f6f2;
+    border: 3px dashed #4a8660;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.video-box iframe {
+    width: 100%;
+    height: 480px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.partners-box {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #eaf4ec;
+    border: 4px dashed #2e5949;  /* <- stippellijn */
+    border-radius: 16px;
+    text-align: center;
+}
+
+.partners-box h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #1f3c31;
+}
+
+.partner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.partner-grid img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    padding: 10px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.partner-grid img:hover {
+    transform: scale(1.05);
 }
