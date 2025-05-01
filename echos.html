@@ -9,25 +9,34 @@
 <body>
     <header>
         <nav>
-            <a class="logo" href="index.html">#17lommel</a>
-            <ul>
-                <li><a href="reader.html">Sylvie</a></li>
-                <li><a href="vertel.html">Vertelpagina</a></li>
-                <li><a href="forum.html">Forum</a></li>
-                <li><a href="echos.html">De Echo's</a></li>
-                <li><a href="partners.html">Partners</a></li>
+            <a href="index.html" class="logo">Homepagina</a>
+        
+            <!-- Hamburger toggle -->
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="hamburger">&#9776;</label>
+        
+            <!-- Menu-items -->
+            <ul class="nav-links">
+            <li><a href="reader.html">Sylvie</a></li>
+            <li><a href="vertel.html">Vertelpagina</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="echos.html">De Echo's</a></li>
+            <li><a href="partners.html">Partners</a></li>
             </ul>
         </nav>
-    </header>    
+    </header> 
 
     <main>
-        <section class="video-box">
-            <iframe src="https://www.youtube.com/watch?v=YAgJ9XugGBo" title="Placeholder video" allowfullscreen></iframe>
-        </section>
-    
         <section class="text-block">
-            <p>kijk das een video wooohooooow hij werkt nie ma da is bijzaak da fix ik wel</p>
+            <h1>De Echo's</h1>
+            <p style="text-align: center;">In het filmpje dat je op deze pagina terugvind vertellen de zonen van Sylvie Bollen hun verhaal. Ze geven ons de echo’s van het verzetswerk van Sylvie Bollen.</p>
         </section>
+        <section class="video-box">
+            <video controls>
+                <source src="assets/Interview familie verwerkt.mp4" type="video/mp4" />
+                Je browser ondersteunt dit videotype niet.
+            </video>
+        </section>        
     </main>    
 
     <script src="js/script.js"></script>
